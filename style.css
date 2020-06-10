@@ -22,6 +22,13 @@ body {
     opacity: 0;
     cursor: pointer;
 }
+.image-upload-wrap {
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1.5px dashed #0062cc;
+    position: relative;
+	height:100%
+}
 .image-dropping,
 .image-upload-wrap:hover {
     background-color: #bdd8da;
@@ -31,6 +38,7 @@ body {
 }
 .drag-text {
     text-align: center;
+	padding-top: 100px;
 }
 .drag-text h3 {
     font-weight: 100;
