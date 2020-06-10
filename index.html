@@ -138,7 +138,7 @@
                     rstMsg = "토끼 ( " + p.toFixed(1) + "% )";
                     break;
                 default:
-                    rstMsg = "알수없음";
+                    rstMsg = "알수없음"+prediction[0].className+prediction[0].probability;
             }
             $('.result-message').html(rstMsg);
         }
