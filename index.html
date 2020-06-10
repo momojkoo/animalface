@@ -18,14 +18,14 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light nav_distance">
-        <a class="navbar-brand" href="#">강아지와 고양이</a>
+        <a class="navbar-brand" href="#" onClick="removeUpload();return false;">강아지와 고양이</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="#" onClick="removeUpload();return false;">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -107,13 +107,35 @@
             var image = document.getElementById("file-image")
             const prediction = await model.predict(image, false);
             prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
-            var rstMsg;
+
+			p=prediction[0].probability * 100;
+            
+			var rstMsg;
             switch (prediction[0].className) {
                 case "Dog":
-                    rstMsg = "강아지 ( " + prediction[0].probability.toFixed(3) * 100 + "% )";
+                case "Dog2":
+                    rstMsg = "강아지 ( " + p.toFixed(1) + "% )";
                     break;
                 case "Cat":
-                    rstMsg = "고양이 ( " + prediction[0].probability.toFixed(3) * 100 + "% )";
+                case "Cat2":
+                    rstMsg = "고양이 ( " + p.toFixed(1) + "% )";
+                    break;
+                case "Bear":
+                    rstMsg = "곰 ( " + p.toFixed(1) + "% )";
+                    break;
+                case "Dino":
+                    rstMsg = "공룡 ( " + p.toFixed(1) + "% )";
+                    break;
+                case "Squirrel":
+                case "Squirrel2":
+                    rstMsg = "다람쥐 ( " + p.toFixed(1) + "% )";
+                    break;
+                case "Fox":
+                    rstMsg = "여우 ( " + p.toFixed(1) + "% )";
+                    break;
+                case "Rabbit":
+                case "Rabbit2":
+                    rstMsg = "토끼 ( " + p.toFixed(1) + "% )";
                     break;
                 default:
                     rstMsg = "알수없음";
@@ -159,7 +181,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ed258f395faa8f8"></script>
+    <!--script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ed258f395faa8f8"></script-->
 
 </body>
 
