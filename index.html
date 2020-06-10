@@ -9,16 +9,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-	
-	<link rel="shortcut icon" href="./animalface.ico" type="image/x-icon">
-	<link rel="icon" href="./animalface.ico" type="image/x-icon">
-	
-    <title>강아지와 고양이</title>
+
+    <link rel="shortcut icon" href="./animalface.ico" type="image/x-icon">
+    <link rel="icon" href="./animalface.ico" type="image/x-icon">
+
+    <title>닮은 얼굴</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light nav_distance">
-        <a class="navbar-brand" href="#" onClick="removeUpload();return false;">강아지와 고양이</a>
+        <a class="navbar-brand" href="#" onClick="removeUpload();return false;">닮은 얼굴</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,17 +29,6 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <!--
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
--->
             </ul>
         </div>
     </nav>
@@ -49,7 +38,7 @@
             내 얼굴은...
         </h1>
         <h2 class="subtitle">
-            강아지? 고양이?
+            강아지? 고양이? 토끼?
         </h2>
     </section>
 
@@ -58,19 +47,19 @@
         <div class="image-upload-wrap">
             <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
             <div class="drag-text">
-                <h3 class="mt-5 pt-5">얼굴사진을 올려놓거나 눌러서 업로드하세요</h3>
+                <h3 class="mt-5 pt-5">얼굴 사진을 올려놓거나 눌러서 업로드하세요</h3>
             </div>
         </div>
         <div class="file-upload-content">
             <img class="file-upload-image" id="file-image" src="#" alt="your image" />
             <h2 class="result-message subtitle"></h2>
 
-            <!-- Go to www.addthis.com/dashboard to customize your tools -->
-            <div class="addthis_inline_share_toolbox" style="padding-top:20px"></div>
-
             <div class="image-title-wrap">
                 <button type="button" onclick="removeUpload()" class="remove-image">다른 사진으로 재시도 </button>
             </div>
+
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <div class="addthis_inline_share_toolbox" style="padding-top:20px"></div>
         </div>
 
     </div>
@@ -107,10 +96,8 @@
             var image = document.getElementById("file-image")
             const prediction = await model.predict(image, false);
             prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
-
-			p=prediction[0].probability * 100;
-            
-			var rstMsg;
+            p = prediction[0].probability * 100;
+            var rstMsg;
             switch (prediction[0].className) {
                 case "Dog":
                 case "Dog2":
@@ -140,7 +127,7 @@
                 default:
                     rstMsg = "알수없음";
             }
-            $('.result-message').html(rstMsg+prediction[0].className+prediction[0].probability);
+            $('.result-message').html(rstMsg);
         }
     </script>
     <script>
