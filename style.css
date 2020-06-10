@@ -4,6 +4,7 @@ body {
 }
 .file-upload {
     width: 360px;
+    height: 480px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -20,12 +21,6 @@ body {
     outline: none;
     opacity: 0;
     cursor: pointer;
-}
-.image-upload-wrap {
-    margin-top: 20px;
-    border-radius: 10px;
-    border: 1.5px dashed #0062cc;
-    position: relative;
 }
 .image-dropping,
 .image-upload-wrap:hover {
@@ -77,7 +72,7 @@ body {
     border-color: #ffffff;
 }
 .section {
-    margin-top: 60px;
+    margin-top: 50px;
 }
 .title {
     text-align: center;
